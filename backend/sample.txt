@@ -1,0 +1,83 @@
+├── backend/
+│   ├── controllers/
+│   │   ├── authController.js          # Handles user authentication (login, signup)
+│   │   ├── userController.js          # Manages user profiles, donor registrations, and actions
+│   │   ├── adminController.js         # Handles admin-specific actions (e.g., managing blood campaigns)
+│   │   ├── bloodTypeController.js     # Manages blood type information and availability
+│   │   ├── campaignController.js      # Handles blood donation campaigns and schedules
+│   │   └── recipientController.js     # Manages recipients who need blood donations
+│   │
+│   ├── middlewares/
+│   │   ├── authMiddleware.js          # Middleware for checking user roles and protecting routes
+│   │   ├── jwtMiddleware.js           # Middleware for JWT verification
+│   │   ├── corsMiddleware.js          # Middleware for handling CORS (Cross-Origin Resource Sharing)
+│   │   └── errorMiddleware.js         # Handles errors across routes and controllers
+│   │
+│   ├── models/
+│   │   ├── User.js                    # Sequelize model for users (donors/recipients)
+│   │   ├── Admin.js                   # Sequelize model for admin users
+│   │   ├── BloodType.js               # Sequelize model for blood types
+│   │   ├── Campaign.js                # Sequelize model for campaigns
+│   │   ├── Recipient.js               # Sequelize model for recipients who need blood
+│   │   └── index.js                   # Initializes and connects to the PostgreSQL database
+│   │
+│   ├── routes/
+│   │   ├── authRoutes.js              # Routes for login and signup
+│   │   ├── userRoutes.js              # Routes for managing users (profile, donors)
+│   │   ├── adminRoutes.js             # Routes for admin-specific actions (managing campaigns)
+│   │   ├── bloodTypeRoutes.js         # Routes for managing blood types and availability
+│   │   ├── campaignRoutes.js          # Routes for managing blood donation campaigns
+│   │   └── recipientRoutes.js         # Routes for managing recipients and requests for blood
+│   │
+│   ├── utils/
+│   │   ├── bcryptUtility.js           # Handles password hashing and comparison using Bcrypt
+│   │   ├── jwtUtility.js              # Utility for generating and verifying JWT tokens
+│   │   └── dbConfig.js                # Configuration for the PostgreSQL database (Sequelize)
+│   │
+│   ├── config/
+│   │   ├── appConfig.js               # Configuration settings for the app (e.g., secrets, database URI)
+│   │   └── corsConfig.js              # Configuration settings for CORS (allowed origins, methods, etc.)
+│   │
+│   └── server.js                      # Main server file that sets up the Express app and routes
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── admin/
+│   │   │   │   ├── AdminDashboard.jsx   # Admin dashboard interface
+│   │   │   │   ├── ManageUsers.jsx      # Component for managing donors by the admin
+│   │   │   │   ├── ManageCampaigns.jsx  # Component for managing donation campaigns
+│   │   │   │   └── AdminUserList.jsx    # Admin view of all donors/users with admin actions
+│   │   │   │
+│   │   │   ├── user/
+│   │   │   │   ├── UserDashboard.jsx    # User dashboard interface (for donors/recipients)
+│   │   │   │   ├── UserProfile.jsx      # Component for users to manage their profiles
+│   │   │   │   ├── DonorList.jsx        # Displays a list of available donors
+│   │   │   │   └── RecipientRequests.jsx# Displays requests for blood by recipients
+│   │   │   │
+│   │   │   ├── campaigns/
+│   │   │   │   ├── CampaignCreate.jsx   # Component for admins to create blood donation campaigns
+│   │   │   │   ├── CampaignList.jsx     # Component to display active blood donation campaigns
+│   │   │   │
+│   │   │   ├── auth/
+│   │   │   │   ├── Login.jsx            # Login form component
+│   │   │   │   └── Signup.jsx           # Signup form component
+│   │   │
+│   │   ├── context/
+│   │   │   ├── AuthContext.js           # Global state for authentication and user roles
+│   │   │   └── RoleContext.js           # Manages roles (admin, donor, recipient)
+│   │   │
+│   │   ├── services/
+│   │   │   ├── authService.js           # API service for authentication (login, signup)
+│   │   │   ├── userService.js           # API service for user-related actions (profile, donor list)
+│   │   │   ├── adminService.js          # API service for admin actions (e.g., managing campaigns)
+│   │   │   ├── campaignService.js       # API service for managing blood donation campaigns
+│   │   │   └── bloodTypeService.js      # API service for blood type-related actions
+│   │   │
+│   │   ├── utils/
+│   │   │   ├── tokenUtils.js            # Handles JWT tokens in the frontend (saving, verifying)
+│   │   │   └── apiUtils.js              # Utility functions for making API calls
+│   │   │
+│   │   └── index.js                     # Entry point for the React app
+│
+└── README.md                            # Documentation for setting up and running the project

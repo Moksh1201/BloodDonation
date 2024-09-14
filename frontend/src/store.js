@@ -1,0 +1,12 @@
+// store.js
+import {configureStore } from '@reduxjs/toolkit';
+import { thunk } from 'redux-thunk';
+import bloodDonationReducer from './reducers';
+
+const store = configureStore({
+  reducer: bloodDonationReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
+  devTools: process.env.NODE_ENV !== 'production',
+});
+
+export default store;

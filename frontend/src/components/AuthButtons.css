@@ -1,0 +1,43 @@
+/* AuthButtons.css */
+
+.auth-container {
+    display: flex;
+    justify-content: right;
+    height: 60px; 
+    width: 10;
+
+  }
+  
+  .auth-button {
+    padding: 5px 5px;
+    margin: 3px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+  
+  /* Signup Button */
+  .signup-button {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+  }
+  
+  .signup-button:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+  }
+  
+  /* Signin Button */
+  .signin-button {
+    background-color: #008CBA; /* Blue background */
+    color: white;
+  }
+  
+  .signin-button:hover {
+    background-color: #007bb5;
+    transform: scale(1.1);
+  }
+  

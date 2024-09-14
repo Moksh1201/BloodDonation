@@ -1,0 +1,131 @@
+/* Container and Layout */
+.donor-container {
+    display: flex;
+    background-color: #f7f8fc;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #fff;
+    border-right: 1px solid #e5e7eb;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #2c3e50;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sidebar ul li a:hover {
+    color: #1abc9c;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Top Section with Title and Buttons */
+  .main-content .top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .main-content h1 {
+    font-size: 28px;
+    color: #34495e;
+  }
+  
+  .top-section .button {
+    background-color: #1abc9c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .top-section .button:hover {
+    background-color: #16a085;
+  }
+  
+  /* Table Styles */
+  .donor-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #2c3e50;
+  }
+  
+  .donor-table th,
+  .donor-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .donor-table th {
+    background-color: #f1f2f6;
+    font-weight: bold;
+  }
+  
+  .donor-table tr:hover {
+    background-color: #f7f8fc;
+  }
+  
+  /* Form for Update/Delete */
+  .donor-form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .donor-form input {
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 5px;
+    width: 100%;
+    margin-right: 10px;
+  }
+  
+  .donor-form button {
+    background-color: #1abc9c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .donor-form button:hover {
+    background-color: #16a085;
+  }
+  
