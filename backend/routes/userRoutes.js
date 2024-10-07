@@ -1,34 +1,19 @@
+// routes/userRoutes.js
 const express = require('express');
 const router = express.Router();
 const {
-    registerUser,
-    loginUser,
     getUserProfile,
     updateUserProfile,
-    updateUserPreferences,
-    getUserCampaigns,
     deleteUser
 } = require('../controllers/userController');
 
-// Register a new user
-router.post('/register', registerUser);
-
-// User login
-router.post('/login', loginUser);
-
 // Get user profile by ID
-router.get('/profile/:id', getUserProfile);
+router.get('/:id', getUserProfile);
 
 // Update user profile
-router.put('/profile/:id', updateUserProfile);
-
-// Update user preferences
-router.put('/preferences/:id', updateUserPreferences);
-
-// Get a list of campaigns for a user
-router.get('/campaigns/:id', getUserCampaigns);
+router.put('/:id', updateUserProfile);
 
 // Delete a user
-router.delete('/profile/:id', deleteUser);
+router.delete('/:id', deleteUser);
 
 module.exports = router;

@@ -1,20 +1,61 @@
-const validateUserRegistration = (userData) => {
-    const errors = [];
-    if (!userData.username || userData.username.length < 3) errors.push('Username must be at least 3 characters long');
-    if (!userData.email || !/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[A-Z|a-z]{2,7}$/.test(userData.email)) errors.push('Invalid email');
-    if (!userData.password || userData.password.length < 6) errors.push('Password must be at least 6 characters long');
-    if (!['admin', 'donor', 'recipient'].includes(userData.role)) errors.push('Invalid role');
+// utils/validation.js
 
-    return { isValid: errors.length === 0, errors };
+// Validation for user registration data
+const validateUserRegistration = ({ name, email, password }) => {
+    const errors = {};
+
+    if (!name || name.trim() === '') {
+        errors.name = 'Name is required';
+    }
+
+    if (!email || email.trim() === '') {
+        errors.email = 'Email is required';
+    } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+        errors.email = 'Invalid email format';
+    }
+
+    if (!password || password.length < 6) {
+        errors.password = 'Password must be at least 6 characters long';
+    }
+
+    return {
+        isValid: Object.keys(errors).length === 0,
+        errors
+    };
 };
 
-const validateUserUpdate = (userData) => {
-    const errors = [];
-    if (userData.username && userData.username.length < 3) errors.push('Username must be at least 3 characters long');
-    if (userData.email && !/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[A-Z|a-z]{2,7}$/.test(userData.email)) errors.push('Invalid email');
-    if (userData.password && userData.password.length < 6) errors.push('Password must be at least 6 characters long');
-    
-    return { isValid: errors.length === 0, errors };
+// Validation for user update data
+const validateUserUpdate = ({ name, email, password, bio, phoneNumber, address }) => {
+    const errors = {};
+
+    if (name && name.trim() === '') {
+        errors.name = 'Name cannot be empty';
+    }
+
+    if (email && email.trim() !== '' && !/^\S+@\S+\.\S+$/.test(email)) {
+        errors.email = 'Invalid email format';
+    }
+
+    if (password && password.length < 6) {
+        errors.password = 'Password must be at least 6 characters long';
+    }
+
+    if (bio && bio.trim() === '') {
+        errors.bio = 'Bio cannot be empty';
+    }
+
+    if (phoneNumber && !/^\+?\d+$/.test(phoneNumber)) {
+        errors.phoneNumber = 'Invalid phone number';
+    }
+
+    if (address && address.trim() === '') {
+        errors.address = 'Address cannot be empty';
+    }
+
+    return {
+        isValid: Object.keys(errors).length === 0,
+        errors
+    };
 };
 
 module.exports = {

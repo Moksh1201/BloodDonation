@@ -1,25 +1,25 @@
-// models/User.js
+// models/user.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('./index'); // Assuming you have this file to initialize Sequelize
+const sequelize = require('../config/dbconfig');
 
 const User = sequelize.define('User', {
     id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
     },
     name: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(100),
         allowNull: false,
-        unique: true  // Ensure the name is unique
+        unique: true
     },
     email: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(100),
         allowNull: false,
         unique: true
     },
     password: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(100),
         allowNull: false
     },
     bio: {
@@ -35,8 +35,7 @@ const User = sequelize.define('User', {
         defaultValue: DataTypes.NOW
     }
 }, {
-    timestamps: false,
-    tableName: 'users'
+    timestamps: false
 });
 
 module.exports = User;
